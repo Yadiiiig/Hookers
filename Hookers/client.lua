@@ -60,7 +60,7 @@ Citizen.CreateThread(function()
 					if IsControlJustPressed(0,51) then
 						TaskEnterVehicle(SpawnedPed, GetVehiclePedIsIn(playerPed, false), -1, 0, 1.0, 1, 0)
 						Citizen.Wait(5000)
-						TriggerEvent("chatMessage", "Veronica", {0 , 255, 0 }, "Hey sweetie, what would like? A blowjob or something better?")
+						TriggerEvent("chatMessage", "Veronica", {0 , 255, 0 }, "Hey sweetie, what would you like? A blowjob or something better?")
 						Citizen.Wait(1000)
 						TriggerEvent("chatMessage", "INFO", {0 , 255, 0 }, "Type /bj for a blowjob, /sex for sex or /getout to let the hooker leave.")
 					end
