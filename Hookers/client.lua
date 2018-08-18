@@ -106,7 +106,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-	  Citizen.Wait(0)
+	  Citizen.Wait(1000)
 			if IsEntityDead(SpawnedPed) then
 			  SpawnedPed = CreatePed(2, "s_f_y_hooker_01", 128.65, -1055.36, 29.19, 156.4, true, true)
 			end
