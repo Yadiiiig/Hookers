@@ -36,15 +36,16 @@ Citizen.CreateThread(function()
 	if (not ModelSpawned) then
 	  
 	  for i=1, #Hookers do
-        RequestModel(GetHashKey(Hookers[i].modelHash))
+		RequestModel(GetHashKey(Hookers[i].modelHash))
         while not HasModelLoaded(GetHashKey(Hookers[i].modelHash)) do
           Citizen.Wait(0)
         end
 		SpawnedPed = CreatePed(2, Hookers[i].modelHash, Hookers[i].x, Hookers[i].y, Hookers[i].z, Hookers[i].heading, true, true)
-		  ModelSpawned = true
-		  if IsEntityDead(SpawnedPed) then
-			SpawnedPed = CreatePed(2, Hookers[i].modelHash, Hookers[i].x, Hookers[i].y, Hookers[i].z, Hookers[i].heading, true, true)
-		  end
+		ModelSpawned = true
+		TaskSetBlockingOfNonTemporaryEvents(SpawnedPed, true)
+		Citizen.Wait(1)
+		TaskStartScenarioInPlace(SpawnedPed, "WORLD_HUMAN_SMOKING", 0, false)
+		
 	end
     end
 	end
@@ -109,6 +110,9 @@ Citizen.CreateThread(function()
 	  Citizen.Wait(1000)
 			if IsEntityDead(SpawnedPed) then
 			  SpawnedPed = CreatePed(2, "s_f_y_hooker_01", 128.65, -1055.36, 29.19, 156.4, true, true)
+			  TaskSetBlockingOfNonTemporaryEvents(SpawnedPed, true)
+			  Citizen.Wait(1)
+			  TaskStartScenarioInPlace(SpawnedPed, "WORLD_HUMAN_SMOKING", 0, false)
 			end
 	end
 end)
